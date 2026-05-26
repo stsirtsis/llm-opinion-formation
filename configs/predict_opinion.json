@@ -1,0 +1,52 @@
+{
+    "dataset": ["ukp", "semeval"],
+    "task": ["writing", "improvement"],
+    "model": [
+        "mistralai/Ministral-3-8B-Instruct-2512",
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "google/gemma-3-12b-it",
+        "Qwen/Qwen3-8B"
+    ],
+    "topic": [
+        "abortion",
+        "cloning",
+        "death_penalty",
+        "gun_control",
+        "marijuana_legalization",
+        "minimum_wage",
+        "nuclear_energy",
+        "school_uniforms",
+        "atheism",
+        "acknowledging_climate_change",
+        "feminism",
+        "hillary_clinton",
+        "donald_trump"
+    ],
+    "quantification_method": ["centroid"],
+    "processed_data_dir": "outputs/transform_text",
+    "weights_dir": "models",
+    "instruction": "Classify the stance of the following text as either supporting or opposing {topic}.",
+    "embed_batch_size": 16,
+    "embeddings_cache_dir": "models/embeddings_cache_predict",
+    "seed": 42,
+    "executor": {
+        "exec_name": "predict_opinion",
+        "output_dir": "outputs",
+        "log_dir": "outputs/logs"
+    },
+    "slurm": {
+        "cores": 8,
+        "nodes": 1,
+        "time": "0-01:00",
+        "memory": "48G",
+        "partition": "gpu-batch",
+        "account": "",
+        "email": "",
+        "email_type": "",
+        "log_dir": "outputs/slurm_logs",
+        "job_name": "predict_opinion",
+        "exclude": "",
+        "constraint": "",
+        "gres": "gpu:a100:1"
+    }
+}

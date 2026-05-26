@@ -1,0 +1,35 @@
+{
+    "topic": ["abortion"],
+    "exclude_guideline": [0, 1, 2, 3, 4],
+    "dataset": "semeval",
+    "task": "contextualization",
+    "model": "grok-4-1-fast-reasoning",
+    "judge_model": "gpt-5.4",
+    "processed_data_dir": "outputs/grok_explain",
+    "input_prefix": "grok_explain",
+    "few_shot_file": "data/few_shot/judge_abortion.tsv",
+    "limit": 0,
+    "log_prompts": false,
+    "seed": 42,
+    "executor": {
+        "exec_name": "judge_predict",
+        "output_dir": "outputs",
+        "log_dir": "outputs/logs"
+    },
+    "slurm": {
+        "cores": 2,
+        "nodes": 1,
+        "time": "0-04:00",
+        "memory": "4G",
+        "partition": "cpu-batch",
+        "account": "",
+        "email": "",
+        "email_type": "",
+        "log_dir": "outputs/slurm_logs",
+        "job_name": "judge_predict",
+        "exclude": "",
+        "constraint": "",
+        "gres": "",
+        "julia_path": "~/.juliaup/bin"
+    }
+}

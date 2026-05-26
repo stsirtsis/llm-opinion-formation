@@ -1,0 +1,28 @@
+{
+    "dataset": ["ukp", "semeval"],
+    "model_dir": "models",
+    "seed": 42,
+    "embed_batch_size": 32,
+    "cal_size": 20,
+    "executor": {
+        "exec_name": "build_ensemble",
+        "output_dir": "outputs",
+        "log_dir": "outputs/logs"
+    },
+    "slurm": {
+        "cores": 8,
+        "nodes": 1,
+        "time": "0-02:30",
+        "memory": "40G",
+        "partition": "gpu-batch",
+        "account": "",
+        "email": "",
+        "email_type": "FAIL",
+        "log_dir": "outputs/slurm_logs",
+        "job_name": "build_ensemble",
+        "exclude": "",
+        "constraint": "",
+        "gres": "gpu:a100:1",
+        "julia_path": "~/.juliaup/bin"
+    }
+}

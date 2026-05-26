@@ -1,0 +1,55 @@
+{
+    "dataset": ["ukp", "semeval"],
+    "task": ["writing", "improvement"],
+    "model": [
+        "mistralai/Ministral-3-8B-Instruct-2512",
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "google/gemma-3-12b-it",
+        "Qwen/Qwen3-8B"
+    ],
+    "topic": [
+        "abortion",
+        "cloning",
+        "death_penalty",
+        "gun_control",
+        "marijuana_legalization",
+        "minimum_wage",
+        "nuclear_energy",
+        "school_uniforms",
+        "atheism",
+        "acknowledging_climate_change",
+        "feminism",
+        "hillary_clinton",
+        "donald_trump"
+    ],
+    "quantification_method": ["centroid"],
+    "prompt_variant": ["political"],
+    "processed_data_dir": "outputs/steer_prompt_transform",
+    "input_prefix": "steer_prompt_transform",
+    "weights_dir": "models",
+    "instruction": "Classify the stance of the following text as either supporting or opposing {topic}.",
+    "embed_batch_size": 16,
+    "embeddings_cache_dir": "models/embeddings_cache_steer_prompt_predict",
+    "seed": 42,
+    "executor": {
+        "exec_name": "predict_opinion",
+        "output_dir": "outputs",
+        "log_dir": "outputs/logs"
+    },
+    "slurm": {
+        "cores": 8,
+        "nodes": 1,
+        "time": "0-02:00",
+        "memory": "48G",
+        "partition": "gpu-batch",
+        "account": "",
+        "email": "",
+        "email_type": "",
+        "log_dir": "outputs/slurm_logs",
+        "job_name": "steer_prompt_predict",
+        "exclude": "",
+        "constraint": "",
+        "gres": "gpu:a100:1",
+        "max_concurrent": 8
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "dataset": ["ukp", "semeval"],
+    "task": ["writing", "improvement"],
+    "model": [
+        "mistralai/Ministral-3-8B-Instruct-2512",
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "google/gemma-3-12b-it",
+        "Qwen/Qwen3-8B"
+    ],
+    "topic": [
+        "abortion",
+        "cloning",
+        "death_penalty",
+        "gun_control",
+        "marijuana_legalization",
+        "minimum_wage",
+        "nuclear_energy",
+        "school_uniforms",
+        "atheism",
+        "acknowledging_climate_change",
+        "feminism",
+        "hillary_clinton",
+        "donald_trump"
+    ],
+    "text_column": "sentence",
+    "topic_column": "topic",
+    "stance_column": "annotation",
+    "group_column": "annotation",
+    "sample_per_group": 200,
+    "num_outputs": 10,
+    "prompts_file": "configs/prompts.json",
+    "prompts_task": "transform_text",
+    "max_new_tokens": 256,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "filter_correctly_classified": true,
+    "ensemble_dir": "models",
+    "seed": 42,
+    "log_prompts": false,
+    "executor": {
+        "exec_name": "transform_text",
+        "output_dir": "outputs",
+        "log_dir": "outputs/logs"
+    },
+    "slurm": {
+        "cores": 10,
+        "nodes": 1,
+        "time": "0-08:00",
+        "memory": "40G",
+        "partition": "gpu-batch",
+        "account": "",
+        "email": "",
+        "email_type": "",
+        "log_dir": "outputs/slurm_logs",
+        "job_name": "transform_text",
+        "exclude": "",
+        "constraint": "",
+        "gres": "gpu:a100:1",
+        "julia_path": "~/.juliaup/bin"
+    }
+}

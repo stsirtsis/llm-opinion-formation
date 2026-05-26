@@ -1,0 +1,29 @@
+{
+    "input_file": "data/processed/semeval_active_x_posts.tsv",
+    "task": "contextualization",
+    "model": "grok-4-1-fast-reasoning",
+    "num_outputs": 5,
+    "exclude_guideline": [0, 1, 2, 3, 4],
+    "log_prompts": false,
+    "executor": {
+        "exec_name": "grok_explain",
+        "output_dir": "outputs",
+        "log_dir": "outputs/logs"
+    },
+    "slurm": {
+        "cores": 2,
+        "nodes": 1,
+        "time": "0-12:00",
+        "memory": "4G",
+        "partition": "cpu-batch",
+        "account": "",
+        "email": "",
+        "email_type": "FAIL",
+        "log_dir": "outputs/slurm_logs",
+        "job_name": "grok_explain",
+        "exclude": "",
+        "constraint": "",
+        "gres": "",
+        "julia_path": "~/.juliaup/bin"
+    }
+}

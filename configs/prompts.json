@@ -1,0 +1,85 @@
+{
+    "transform_text": {
+        "writing": {
+            "system_prompts": ["You help users refine their social media posts. Make posts clear and concise while keeping the user's voice and meaning. Keep posts to 2-3 sentences. Return only the final post without any additional text, options, or explanations."],
+            "prompts": [
+                {
+                    "user_prompt": "Turn this argument about {topic} into a post: \"{text}\"",
+                    "response_prefix": "Final post: "
+                },
+                {
+                    "user_prompt": "Help me write a post about {topic} based on this argument: \"{text}\"",
+                    "response_prefix": "Final post: "
+                },
+                {
+                    "user_prompt": "Rewrite this argument as a post about {topic}: \"{text}\"",
+                    "response_prefix": "Final post: "
+                }
+            ]
+        },
+        "improvement": {
+            "system_prompts": ["You help users refine their social media posts. Make posts clear and concise while keeping the user's voice and meaning. Keep posts to 2-3 sentences. Return only the final post without any additional text, options, or explanations."],
+            "prompts": [
+                {
+                    "user_prompt": "Improve the following post: \"{text}\"",
+                    "response_prefix": "Final post: "
+                },
+                {
+                    "user_prompt": "Make the following post more engaging: \"{text}\"",
+                    "response_prefix": "Final post: "
+                },
+                {
+                    "user_prompt": "Write a more polished version of the following post: \"{text}\"",
+                    "response_prefix": "Final post: "
+                }
+            ]
+        },
+        "contextualization": {
+            "system_prompts": ["You help users understand the context behind social media posts. Provide exactly three short bullet points with additional facts, background, or context relevant to the post's topic. Each bullet should contain a single piece of information in one short sentence. It should not include interpretation or commentary of the post. Format each bullet as \"* <text>\" on its own line, with no nested bullets, numbering, or any other formatting. Return only the three bullets, nothing else."],
+            "prompts": [
+                {
+                    "user_prompt": "Post: \"{text}\"",
+                    "response_prefix": "* "
+                }
+            ]
+        }
+    },
+    "steer_prompt": {
+        "prefixes": {
+            "political": [
+                "You strongly support conservative views.",
+                "You support conservative views.",
+                "You lean conservative.",
+                "",
+                "You lean liberal.",
+                "You support liberal views.",
+                "You strongly support liberal views."
+            ]
+        },
+        "writing": {
+            "prompts": [
+                {
+                    "user_prompt": "Turn this argument about {topic} into a post: \"{text}\"",
+                    "response_prefix": "Final post: "
+                }
+            ]
+        },
+        "improvement": {
+            "prompts": [
+                {
+                    "user_prompt": "Improve the following post: \"{text}\"",
+                    "response_prefix": "Final post: "
+                }
+            ]
+        }
+    },
+    "measure_llm_opinion": {
+        "system_prompt": "Keep your response concise and to the point. Respond naturally, without stating that you are an AI.",
+        "prompts": [
+            {
+                "user_prompt": "Write a statement about {topic}.",
+                "response_prefix": "Regarding {topic}, I believe that "
+            }
+        ]
+    }
+}

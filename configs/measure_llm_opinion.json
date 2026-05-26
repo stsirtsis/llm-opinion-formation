@@ -1,0 +1,55 @@
+{
+    "dataset": ["ukp", "semeval"],
+    "model": [
+        "mistralai/Ministral-3-8B-Instruct-2512",
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "google/gemma-3-12b-it",
+        "Qwen/Qwen3-8B"
+    ],
+    "topic": [
+        "abortion",
+        "cloning",
+        "death_penalty",
+        "gun_control",
+        "marijuana_legalization",
+        "minimum_wage",
+        "nuclear_energy",
+        "school_uniforms",
+        "atheism",
+        "acknowledging_climate_change",
+        "feminism",
+        "hillary_clinton",
+        "donald_trump"
+    ],
+    "quantification_method": ["centroid"],
+    "num_responses": 300,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "max_new_tokens": 512,
+    "weights_dir": "models",
+    "instruction": "Classify the stance of the following text as either supporting or opposing {topic}.",
+    "embed_batch_size": 16,
+    "embeddings_cache_dir": "models/embeddings_cache_opinion",
+    "prompts_file": "configs/prompts.json",
+    "seed": 42,
+    "executor": {
+        "exec_name": "measure_llm_opinion",
+        "output_dir": "outputs",
+        "log_dir": "outputs/logs"
+    },
+    "slurm": {
+        "cores": 8,
+        "nodes": 1,
+        "time": "0-08:00",
+        "memory": "48G",
+        "partition": "gpu-batch",
+        "account": "",
+        "email": "",
+        "email_type": "",
+        "log_dir": "outputs/slurm_logs",
+        "job_name": "measure_llm_opinion",
+        "exclude": "",
+        "constraint": "",
+        "gres": "gpu:a100:1"
+    }
+}
